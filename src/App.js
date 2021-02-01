@@ -1,5 +1,7 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Header from './Header';
+import Tehnologies from './Tehnologies';
 
 function App() {
   return (
@@ -8,29 +10,6 @@ function App() {
       <Tehnologies/>
     </div>
   );
-}
-
-function Header() {
-  return(
-    <div>
-      <div>Home</div>
-      <div>Class</div>
-      <div>Office</div>
-    </div>
-  )
-}
-
-function Tehnologies() {
-  return(
-    <div>
-      <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JS</li>
-        <li>React</li>
-      </ul>
-    </div>
-  )
 }
 
 export default App;
