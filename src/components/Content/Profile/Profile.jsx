@@ -1,12 +1,13 @@
 import React from 'react';
-import classes from './Profile.module.css';
+import Classes from './Profile.module.css';
+import Posts from './Posts/Posts'
+import ProfileInfo from './ProfileInfo/ProfileInfo'
 
-function Profile() {
+const Profile = () => {
     return(
-        <div className={classes.profile}>
-            <img src='https://whatsism.com/uploads/posts/2018-07/1530546770_rmk_vdjbx10.jpg'></img>
-            <div className={classes.fio}>Bagaev Maksim Aleksandrovich</div>
-            <div className={`${classes.year}`}> 1991 </div>
+        <div className={Classes.profile}>
+            <ProfileInfo/>
+            <Posts/>
         </div>
     )
 }
