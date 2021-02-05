@@ -3,8 +3,8 @@ import Classes from './Comments.module.css'
 import Comment from './Comment/Comment';
 
 let postsData = [
-  {id= 1, name: 'Maksim', message:'Навальный жгет!', like: 2},
-  {id= 2, name: 'Ivan', message:'Ля, фига се!', like: 15}
+  {id: 1, name: 'Maksim', message:'Навальный жгет!', like: 2},
+  {id: 2, name: 'Ivan', message:'Ля, фига се!', like: 15}
 ]
 
 const Comments = (props) => {
