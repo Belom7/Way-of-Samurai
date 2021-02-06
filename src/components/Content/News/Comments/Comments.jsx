@@ -7,12 +7,13 @@ let postsData = [
   {id: 2, name: 'Ivan', message:'Ля, фига се!', like: 15}
 ]
 
+let postElement = postsData.map (post => <Comment name={post.name} message={post.message} like={post.like} id={post.id}/>)
+
 const Comments = (props) => {
     return(
         <div className={Classes.MyPosts}>
           <h3>Комментарии</h3>
-          <Comment name={postsData[0].name} massage={postsData[0].message} like={postsData[0].like} id={postsData[0].id}/>
-          <Comment name={postsData[1].name} massage={postsData[1].message} like={postsData[1].like} id={postsData[1].id}/>
+          {postElement}
         </div>
     )
 }
