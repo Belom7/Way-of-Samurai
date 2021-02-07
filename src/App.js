@@ -5,13 +5,13 @@ import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
 import Content from './components/Content/Content'
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <div className="App">
         <Header/>
         <Nav/>
-        <Content/>
+        <Content d={props.d} m={props.m} pi={props.pi} pM={props.pM}/>
       </div>
     </BrowserRouter>
   );

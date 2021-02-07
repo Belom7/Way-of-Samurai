@@ -6,16 +6,15 @@ import Profile from './Profile/Profile';
 import News from './News/News';
 import Music from './Music/Music';
 
-function Content() {
-    return(      
-        <div className={classes.Content}>
-          <Route path='/Profile' component={Profile}/>
-          <Route path='/Messages' component={Messages}/>
-          <Route path='/News' component={News}/>
-          <Route path='/Music' component={Music}/>
-          {/* <Route path='/Settings' component={Settings}/> */}
-        </div>
-    )
+function Content(props) {  
+  return(      
+    <div className={classes.Content}>
+      <Route path='/Profile' render={ () => <Profile pi={props.pi} pM={props.pM}/>}/>
+      <Route path='/Messages' render={ () => <Messages d={props.d} m={props.m}/>}/>
+      <Route path='/News' render={ () => <News/>}/>
+      <Route path='/Music' render={ () => <Music/>}/>
+    </div>
+  )
 }
 
 export default Content;
