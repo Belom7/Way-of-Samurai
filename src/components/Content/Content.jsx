@@ -6,11 +6,11 @@ import Profile from './Profile/Profile';
 import News from './News/News';
 import Music from './Music/Music';
 
-function Content(props) {  
+const Content = (props) => { 
   return(      
     <div className={classes.Content}>
-      <Route path='/Profile' render={ () => <Profile pi={props.pi} pM={props.pM}/>}/>
-      <Route path='/Messages' render={ () => <Messages d={props.d} m={props.m}/>}/>
+      <Route path='/Profile' render={ () => <Profile state={props.state.profile}/>}/>
+      <Route path='/Messages' render={ () => <Messages state={props.state.messages}/>}/>
       <Route path='/News' render={ () => <News/>}/>
       <Route path='/Music' render={ () => <Music/>}/>
     </div>
