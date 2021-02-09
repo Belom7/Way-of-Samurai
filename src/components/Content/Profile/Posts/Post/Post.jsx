@@ -7,10 +7,10 @@ const Post = (props) => {
             <div className={Classes.img}>
                 {<img src='http://archilab.online/images/1/123.jpg'></img>}
             </div>
-            <div className={Classes.name}>
+            <div className={Classes.name} id={props.id}>
                 {props.name}
             </div>
-            <div className={Classes.text}>
+            <div className={Classes.text} id={props.id}>
                 {props.message}
             </div>
 
