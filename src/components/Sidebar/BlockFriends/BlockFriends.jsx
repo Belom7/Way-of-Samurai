@@ -3,8 +3,8 @@ import Classes from './BlockFriends.module.css';
 
 const BlockFriends = (props) => {
     return(
-        <div className={Classes.friends}>
-            {props.id} {props.img} {props.name}
+        <div className={Classes.friends} id={props.id}>
+            {props.img} {props.name}
         </div>
     )
 }
