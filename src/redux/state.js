@@ -57,4 +57,10 @@
     },
 }
 
+export let addPost = (messagePost) => {
+    let newPost = {id: 5, message: messagePost, name: 'Maks'}
+    state.content.profile.posts.postMessage.push(newPost);
+
+}
+
 export default state;
