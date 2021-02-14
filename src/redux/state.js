@@ -1,3 +1,5 @@
+import { render } from './../render';
+
   let state = {
     header: {
         logo: [
@@ -60,7 +62,9 @@
 export let addPost = (messagePost) => {
     let newPost = {id: 5, message: messagePost, name: 'Maks'}
     state.content.profile.posts.postMessage.push(newPost);
-
+    render(state);
 }
+
+
 
 export default state;
