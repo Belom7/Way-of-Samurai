@@ -9,8 +9,13 @@ const Profile = (props) => {
 
     let area = React.createRef();
     let click = () => {
-         let text = area.current.value;
-        props.addPost(text)};
+        props.addPost();
+    };
+
+    let onPostChange = () => {
+        let text = area.current.value;
+        props.UpdateNewPost(text);
+    };
     
     return(
         <div className={Classes.profile}>
@@ -18,7 +23,7 @@ const Profile = (props) => {
             </div>
             {profileInfo}
             <div>
-                <textarea ref={area} ></textarea>
+                <textarea onChange={onPostChange} ref={area} value={props.newPost}/>
                 <button onClick={click}>add post</button>
             </div>
             <Posts state={props.state.posts}/>

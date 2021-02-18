@@ -37,7 +37,8 @@ import { render } from './../render';
                     {id: 1, message: 'Воу-воу чувак какая аватарка!', name: 'Юличка'},
                     {id: 2, message: 'Раз два три елочка гори!', name: 'Кто то из грота'}
                 ],
-            },
+                newPostText: '',
+            },  
         },
         messages: {
             dialogsData: [
@@ -59,9 +60,15 @@ import { render } from './../render';
     },
 }
 
-export let addPost = (messagePost) => {
-    let newPost = {id: 5, message: messagePost, name: 'Maks'}
+export let addPost = () => {
+    let newPost = {id: 5, message: state.content.profile.posts.newPostText, name: 'Maks'}
     state.content.profile.posts.postMessage.push(newPost);
+    state.content.profile.posts.newPostText = '';
+    render(state);
+}
+
+export let UpdateNewPost = (text) => {
+    state.content.profile.posts.newPostText = text;
     render(state);
 }
 
