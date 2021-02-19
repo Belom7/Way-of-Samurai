@@ -1,6 +1,8 @@
-import { render } from './../render';
+let render = () => {
+    console.log('render on')
+}
 
-  let state = {
+let state = {
     header: {
         logo: [
 
@@ -60,18 +62,21 @@ import { render } from './../render';
     },
 }
 
-export let addPost = () => {
+export const addPost = () => {
     let newPost = {id: 5, message: state.content.profile.posts.newPostText, name: 'Maks'}
     state.content.profile.posts.postMessage.push(newPost);
     state.content.profile.posts.newPostText = '';
     render(state);
 }
 
-export let UpdateNewPost = (text) => {
+export const UpdateNewPost = (text) => {
     state.content.profile.posts.newPostText = text;
     render(state);
 }
 
+export const subscribe = (observer) => {
+    render = observer
+}
 
 
 export default state;
