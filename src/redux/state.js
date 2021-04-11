@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST = 'UPDATE-NEW-POST';
+
 let store = {
     _state : {
         header: {
@@ -81,10 +84,25 @@ let store = {
             this._state.content.profile.posts.newPostText = '';
             this._callSubscriber(this._state);
         } else if (action.type === 'UPDATE-NEW-POST') {
-            this._state.content.profile.posts.newPostText = action.text;
+            this._state.content.profile.posts.newPostText = action.newText;
         this._callSubscriber(this._state);
         }
     }
+    
 }
+
+export const addPostActionCreator = () => {
+    return { 
+        type: ADD_POST 
+    }
+}
+
+export const onPostChangeActionCreator = (text) => {
+    return {
+        type: UPDATE_NEW_POST,
+        newText: text,
+    }
+}
+
 
 export default store;
