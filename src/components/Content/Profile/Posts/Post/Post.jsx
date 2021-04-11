@@ -5,7 +5,7 @@ const Post = (props) => {
     return (
         <div className={Classes.post}>
             <div className={Classes.img}>
-                {<img src='http://archilab.online/images/1/123.jpg'></img>}
+                {<img src='https://klike.net/uploads/posts/2019-03/1551511801_1.jpg'></img>}
             </div>
             <div className={Classes.name} id={props.id}>
                 {props.name}
