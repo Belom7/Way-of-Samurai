@@ -9,12 +9,12 @@ const Profile = (props) => {
 
     let area = React.createRef();
     let click = () => {
-        props.addPost();
+        props.dispatch({type: 'ADD-POST'});
     };
 
     let onPostChange = () => {
         let text = area.current.value;
-        props.UpdateNewPost(text);
+        props.dispatch({type: 'UPDATE-NEW-POST', text: text});
     };
     
     return(

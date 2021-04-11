@@ -58,32 +58,32 @@ let store = {
             },
         },
     },
-
-    getState () {
-        return this._state;
-    },
-
     _callSubscriber () {
         console.log('render on')
     },
 
-    addPost () {
-        let newPost = { 
-            id: 5, 
-            message: this._state.content.profile.posts.newPostText,
-            name: 'Maks'}
-        this._state.content.profile.posts.postMessage.push(newPost);
-        this._state.content.profile.posts.newPostText = '';
-        this._callSubscriber(this._state);
-    },
 
-    UpdateNewPost (text) {
-        this._state.content.profile.posts.newPostText = text;
-        this._callSubscriber(this._state);
+    getState () {
+        return this._state;
     },
-
     subscribe (observer) {
         this._callSubscriber = observer
+    },
+    
+
+    dispatch (action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = { 
+                id: 5, 
+                message: this._state.content.profile.posts.newPostText,
+                name: 'Maks'}
+            this._state.content.profile.posts.postMessage.push(newPost);
+            this._state.content.profile.posts.newPostText = '';
+            this._callSubscriber(this._state);
+        } else if (action.type === 'UPDATE-NEW-POST') {
+            this._state.content.profile.posts.newPostText = action.text;
+        this._callSubscriber(this._state);
+        }
     }
 }
 

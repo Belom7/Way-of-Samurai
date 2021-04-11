@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 let render = (state) => {
   ReactDOM.render(
     <React.StrictMode>
-      <App state={state} addPost={store.addPost.bind(store)} UpdateNewPost={store.UpdateNewPost.bind(store)}/>
+      <App state={state} dispatch={store.dispatch.bind(store)}/>
     </React.StrictMode>,
     document.getElementById('root')
   );
