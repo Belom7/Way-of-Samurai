@@ -1,5 +1,8 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST = 'UPDATE-NEW-POST';
+const ADD_DIALOG = 'ADD-DIALOG';
+const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
+
 
 let store = {
     _state : {
@@ -58,6 +61,8 @@ let store = {
                     {id: 4, message: 'ЭЭЭ ау'},
                     {id: 5, message: 'гГ'},
                 ],
+
+                newMessageText: '',
             },
         },
     },
@@ -75,7 +80,7 @@ let store = {
     
 
     dispatch (action) {
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost = { 
                 id: 5, 
                 message: this._state.content.profile.posts.newPostText,
@@ -83,9 +88,17 @@ let store = {
             this._state.content.profile.posts.postMessage.push(newPost);
             this._state.content.profile.posts.newPostText = '';
             this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-POST') {
+        } else if (action.type === UPDATE_NEW_POST) {
             this._state.content.profile.posts.newPostText = action.newText;
-        this._callSubscriber(this._state);
+            this._callSubscriber(this._state);
+        } else if (action.type === UPDATE_MESSAGE_TEXT) {
+            this._state.content.messages.newMessageText = action.newMessageText;
+            this._callSubscriber(this._state);
+        } else if (action.type === ADD_DIALOG) {
+            let message = this._state.content.messages.newMessageText;
+            this._state.content.messages.newMessageText = '';
+            this._state.content.messages.messageData.push({id:6, message: message});
+            this._callSubscriber(this._state);
         }
     }
     
@@ -101,6 +114,18 @@ export const onPostChangeActionCreator = (text) => {
     return {
         type: UPDATE_NEW_POST,
         newText: text,
+    }
+}
+export const addMessageActionCreator = () => {
+    return { 
+        type: ADD_DIALOG 
+    }
+}
+
+export const onMessageChangeActionCreator = (text) => {
+    return {
+        type: UPDATE_MESSAGE_TEXT,
+        newMessageText: text,
     }
 }
 
