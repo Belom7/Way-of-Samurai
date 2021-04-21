@@ -26,7 +26,7 @@ const Profile = (props) => {
             </div>
             {profileInfo}
             <div>
-                <textarea onChange={onPostChange} ref={area} value={props.newPost}/>
+                <textarea onChange={onPostChange} ref={area} value={props.state.newPostText}/>
                 <button onClick={addPost}>add post</button>
             </div>
             <Posts state={props.state.posts}/>
