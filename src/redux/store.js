@@ -9,29 +9,7 @@ const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
 
 
 let store = {
-    _state : {
-        header: {
-            logo: [
-    
-            ]
-        },
-    
-        sidebar: {
-            navbar: [
-                {id: 1, name: 'Profile'},
-                {id: 2, name: 'Messages'},
-                {id: 3, name: 'News'},
-                {id: 4, name: 'Music'},
-                {id: 5, name: 'Settings'},
-            ],
-            blockFriends: [
-                {id: 1, name: 'Andrey'},
-                {id: 2, name: 'Ivan'},
-                {id: 3, name: 'Egor' },
-    
-            ]
-        },
-    
+    _state : {        
         content: {
             profile: {
                 profileInfo: [
@@ -92,31 +70,5 @@ let store = {
     }
     
 }
-
-export const addPostActionCreator = () => {
-    return { 
-        type: ADD_POST 
-    }
-}
-
-export const onPostChangeActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_POST,
-        newText: text,
-    }
-}
-export const addMessageActionCreator = () => {
-    return { 
-        type: ADD_DIALOG 
-    }
-}
-
-export const onMessageChangeActionCreator = (text) => {
-    return {
-        type: UPDATE_MESSAGE_TEXT,
-        newMessageText: text,
-    }
-}
-
 
 export default store;
