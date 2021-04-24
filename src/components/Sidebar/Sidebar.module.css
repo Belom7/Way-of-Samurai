@@ -1,0 +1,14 @@
+.sidebar {
+    background-color: blue;
+    padding: 20px;
+    
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar a.active {
+    color: red;
+}
