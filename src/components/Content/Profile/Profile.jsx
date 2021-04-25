@@ -22,7 +22,7 @@ const Profile = (props) => {
             </div>
             {profileInfo}
             <div>
-                <textarea onChange={onPostChange} value={props.profile.newPostText}/>
+                <textarea onChange={onPostChange} value={props.profile.posts.newPostText}/>
                 <button onClick={addPost}>add post</button>
             </div>
             <Posts posts={props.profile.posts}/>
