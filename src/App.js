@@ -6,11 +6,11 @@ import Content from './components/Content/Content'
 
 const App = (props) => {
   return (
-      <div className="App">
-        <Header/>
-        <Sidebar/>
-        <Content state={props.state} dispatch={props.dispatch}/>
-      </div>
+    <div className="App">
+      <Header />
+      <Sidebar />
+      <Content state={props.state} dispatch={props.dispatch} store={props.store} />
+    </div>
   );
 }
 
