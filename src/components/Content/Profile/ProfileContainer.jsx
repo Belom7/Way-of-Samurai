@@ -1,9 +1,10 @@
 import React from 'react';
 import Profile from './Profile'
 import {addPostActionCreator, onPostChangeActionCreator} from './../../../redux/profileReducer'
-import StoreContext from '../../../storeContext';
+//import StoreContext from '../../../storeContext';
+import { connect } from 'react-redux';
 
-const ProfileContainer = () => {
+/* const ProfileContainer = () => {
     
     return(
     <StoreContext.Consumer> 
@@ -26,6 +27,26 @@ const ProfileContainer = () => {
     }
     </StoreContext.Consumer>
     )
+} */
+
+let mapStateToProps = (state) => {
+    return {
+        profile: state.profile
+    }
 }
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        addPost: () => {
+            dispatch(addPostActionCreator());
+        },
+
+        onPostChange: (text) => {
+            dispatch(onPostChangeActionCreator(text));
+        },
+    }
+}
+
+const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(Profile);
 
 export default ProfileContainer;

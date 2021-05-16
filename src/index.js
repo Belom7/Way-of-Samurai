@@ -4,14 +4,14 @@ import reportWebVitals from './reportWebVitals';
 import store from './redux/redux-store';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import StoreContext from './storeContext';
+import { Provider } from 'react-redux';
 
 let render = (state) => {
   ReactDOM.render(
     <BrowserRouter>
-      <StoreContext.Provider value={store}>
+      <Provider store={store}>
         <App />
-      </StoreContext.Provider>
+      </Provider>
     </BrowserRouter>, document.getElementById('root')
   );
 }
