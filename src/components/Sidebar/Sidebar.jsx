@@ -21,6 +21,9 @@ function Sidebar () {
             <div className={Classes.sidebar}>
                 <NavLink to='Settings' activeClassName={Classes.active}>Settings</NavLink>
             </div>
+            <div className={Classes.sidebar}>
+                <NavLink to='Users' activeClassName={Classes.active}>Users</NavLink>
+            </div>
         </div>
     )
 }
