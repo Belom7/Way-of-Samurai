@@ -1,14 +1,21 @@
+import * as axios from 'axios';
 import React from 'react';
 import Classes from './Users.module.css'
+import UserImg from '../../../assets/images/user.png'
 
 const Users = (props) => {
+    if(props.users.length === 0) {
+        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+            props.setUser(response.data.items)
+        })
+    }
     return(
         <div>
             {
                 props.users.map( u => <div key={u.id}>
                     <span>
                         <div>
-                            <img src={u.img} className={Classes.photo}/>
+                            <img src={ u.photos.small != null ? u.photos.small : UserImg} className={Classes.photo} alt='Аватарка'/>
                         </div>
                         <div>
                             {u.followed ? <button onClick ={() => {props.unfollow(u.id)}}>Follow</button> 
@@ -19,10 +26,10 @@ const Users = (props) => {
                         <div>{u.name}</div>
                         <div>{u.status}</div>
                     </span>
-                    <span>
+                    {/* <span>
                         <div>{u.location.country}</div>
                         <div>{u.location.sity}</div>
-                    </span>
+                    </span> */}
                 </div>)
             }
         </div>
