@@ -1,10 +1,10 @@
 import React from 'react';
-import preloader from './../../../assets/images/Rhombus.gif'
+import preloaderImg from './../../../assets/images/Rhombus.gif'
 
 const Preloader = () => {
     return(
         <div>
-            <img src= {preloader} alt='Прелоадер'/>
+            <img src= {preloaderImg} alt='Прелоадер'/>
         </div>
     )
 }
