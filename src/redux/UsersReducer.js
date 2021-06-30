@@ -58,7 +58,7 @@ const usersReducer = (state = initState, action) => {
         case TOGGLE_IS_FETCHING: {
             return {
                 ...state,
-                isFetcing: action.isFetching
+                isFetching: action.isFetching
             }
         }
         default:
@@ -81,8 +81,8 @@ export const setCurrentPageAC = (currentPage) => {
 export const setTotalUsersCountAC = (totalUsersCount) => {
     return { type: SET_TOTAL_USERS_COUNT, count: totalUsersCount }
 }
-export const toggleIsFetchingAC = (isFetcing) => {
-    return { type: TOGGLE_IS_FETCHING, isFetcing }
+export const toggleIsFetchingAC = (isFetching) => {
+    return { type: TOGGLE_IS_FETCHING, isFetching }
 }
 
 export default usersReducer;
