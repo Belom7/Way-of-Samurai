@@ -10,7 +10,7 @@ import Music from './Music/Music';
 const Content = (props) => { 
   return(      
     <div className={classes.Content}>
-      <Route path='/Profile' render={ () => <ProfileContainer/>}/>
+      <Route path='/Profile/:userId?' render={ () => <ProfileContainer/>}/>
       <Route path='/Messages' render={ () => <MessagesContainer/>}/>
       <Route path='/News' render={ () => <News/>}/>
       <Route path='/Music' render={ () => <Music/>}/>
