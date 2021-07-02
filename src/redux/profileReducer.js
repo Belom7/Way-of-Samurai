@@ -1,6 +1,6 @@
-import react from 'react'
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST = 'UPDATE-NEW-POST';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 let initState = {
     profileInfo: [
@@ -17,6 +17,7 @@ let initState = {
         ],
         newPostText: '',
     },
+    profile: null,
 }
 
 const profileReducer = (state = initState, action) => {
@@ -33,14 +34,6 @@ const profileReducer = (state = initState, action) => {
                 posts: { ...state.posts, postMessage: [...state.posts.postMessage, newPost] },
                 newPostText: ''
             }
-
-
-            /* let stateCopy = { ...state };
-            stateCopy.posts = { ...state.posts };
-            stateCopy.posts.postMessage = [...stateCopy.posts.postMessage];
-            stateCopy.posts.postMessage.push(newPost);
-            stateCopy.posts.newPostText = '';
-            return stateCopy; */
         }
         case UPDATE_NEW_POST:
             let newPostText = action.newText
@@ -48,16 +41,19 @@ const profileReducer = (state = initState, action) => {
                 ...state,
                 posts: { ...state.posts, newPostText }
             }
+        case SET_USER_PROFILE:
+            return { ...state, profile: action.profile }
         default:
             return state;
     }
 }
 
-export const addPostActionCreator = () => {
+export const addPost = () => {
     return { type: ADD_POST }
 }
-export const onPostChangeActionCreator = (text) => {
+export const onPostChange = (text) => {
     return { type: UPDATE_NEW_POST, newText: text }
 }
+export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 
 export default profileReducer;

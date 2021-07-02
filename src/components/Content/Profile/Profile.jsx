@@ -5,7 +5,6 @@ import ProfileInfo from './ProfileInfo/ProfileInfo'
 
 
 const Profile = (props) => {
-    let profileInfo = props.profile.profileInfo.map (info => <ProfileInfo i={info.i} f={info.f} o={info.o} year={info.year} img={info.img}/>)
     
     let addPost = () => {
         props.addPost();
@@ -18,14 +17,12 @@ const Profile = (props) => {
     
     return(
         <div className={Classes.profile}>
-            <div><img src='https://whatsism.com/uploads/posts/2018-07/1530546770_rmk_vdjbx10.jpg'></img>
-            </div>
-            {profileInfo}
+            <ProfileInfo profile={props.profile.profile}/>
             <div>
                 <textarea onChange={onPostChange} value={props.profile.posts.newPostText}/>
                 <button onClick={addPost}>add post</button>
             </div>
-            <Posts posts={props.profile.posts}/>
+                <Posts posts={props.profile.posts}/>
         </div>
     )
 }

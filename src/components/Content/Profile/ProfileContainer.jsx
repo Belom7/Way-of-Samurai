@@ -1,33 +1,25 @@
 import React from 'react';
+import axios from 'axios';
 import Profile from './Profile'
-import {addPostActionCreator, onPostChangeActionCreator} from './../../../redux/profileReducer'
-//import StoreContext from '../../../storeContext';
+import {addPost, onPostChange, setUserProfile} from '../../../redux/profileReducer'
 import { connect } from 'react-redux';
 
-/* const ProfileContainer = () => {
+class ProfileContainer extends React.Component{
     
-    return(
-    <StoreContext.Consumer> 
-        {
-        (store) => {
-            let state = store.getState();
-
-            let addPost = () => {
-                store.dispatch(addPostActionCreator());
-            };
-
-            let onPostChange = (text) => {
-                store.dispatch(onPostChangeActionCreator(text));
-            };
-
-        return(
-            <Profile addPost={addPost} onPostChange={onPostChange} profile={state.profile}/>
-            )
-        }
+    componentDidMount(){
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+            .then(response => {
+                this.props.setUserProfile(response.data)
+                
+        })
     }
-    </StoreContext.Consumer>
-    )
-} */
+
+    render() {
+        return(
+            <Profile {...this.props} profile = {this.props.profile}/>
+        )
+    }
+}
 
 let mapStateToProps = (state) => {
     return {
@@ -35,18 +27,4 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        addPost: () => {
-            dispatch(addPostActionCreator());
-        },
-
-        onPostChange: (text) => {
-            dispatch(onPostChangeActionCreator(text));
-        },
-    }
-}
-
-const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(Profile);
-
-export default ProfileContainer;
+export default connect(mapStateToProps, {addPost, onPostChange, setUserProfile})(ProfileContainer);

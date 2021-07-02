@@ -7,22 +7,22 @@ function Sidebar () {
     return (
         <div >
             <div className={Classes.sidebar}>
-                <NavLink to='Profile' activeClassName={Classes.active}>Profile</NavLink>
+                <NavLink to='/Profile' activeClassName={Classes.active}>Profile</NavLink>
             </div>
             <div className={Classes.sidebar}>
-                <NavLink to='Messages' activeClassName={Classes.active}>Messages</NavLink>
+                <NavLink to='/Messages' activeClassName={Classes.active}>Messages</NavLink>
             </div>
             <div className={Classes.sidebar}>
-                <NavLink to='News' activeClassName={Classes.active}>News</NavLink>
+                <NavLink to='/News' activeClassName={Classes.active}>News</NavLink>
             </div>
             <div className={Classes.sidebar}>
-                <NavLink to='Music' activeClassName={Classes.active}>Music</NavLink>
+                <NavLink to='/Music' activeClassName={Classes.active}>Music</NavLink>
             </div>
             <div className={Classes.sidebar}>
-                <NavLink to='Settings' activeClassName={Classes.active}>Settings</NavLink>
+                <NavLink to='/Settings' activeClassName={Classes.active}>Settings</NavLink>
             </div>
             <div className={Classes.sidebar}>
-                <NavLink to='Users' activeClassName={Classes.active}>Users</NavLink>
+                <NavLink to='/Users' activeClassName={Classes.active}>Users</NavLink>
             </div>
         </div>
     )
