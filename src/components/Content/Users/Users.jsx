@@ -29,8 +29,8 @@ const Users = (props) => {
                         </div>
                         <div>
                             {u.followed 
-                            ? <button onClick ={() => {
-
+                            ? <button disabled={props.followingInProgress.some(id=> id=== u.id)} onClick ={() => {
+                                props.toggleIsFollowingProgress(true, u.id)
                                 axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {withCredentials: true, headers: {
                                     'API-KEY' : 'cf3acb22-7083-4709-a6ea-43f066c0aa35'
                                 }})
@@ -38,10 +38,11 @@ const Users = (props) => {
                                         if(response.data.resultCode === 0) {
                                             props.unfollow(u.id)
                                         }
+                                        props.toggleIsFollowingProgress(false, u.id)
                                     })
                             }}>Unfollow</button> 
-                            : <button onClick ={() => {
-                                
+                            : <button disabled={props.followingInProgress.some(id=> id=== u.id)} onClick ={() => {
+                                props.toggleIsFollowingProgress(true, u.id)
                                 axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {withCredentials: true, headers: {
                                     'API-KEY' : 'cf3acb22-7083-4709-a6ea-43f066c0aa35'
                                 }})
@@ -49,6 +50,7 @@ const Users = (props) => {
                                         if(response.data.resultCode === 0) {
                                             props.follow(u.id)
                                         }
+                                        props.toggleIsFollowingProgress(false, u.id)
                                     })
                             }}>Follow</button>}
                         </div>
