@@ -130,18 +130,16 @@ export const follow = (userId) => {
     }
 }
 
-export const unfollow = (userId) => {
+export const unfollow = (userId) => (dispatch) => {
 
-    return (dispatch) => {
+    dispatch(toggleIsFollowingProgress(true, userId))
 
-        dispatch(toggleIsFollowingProgress(true, userId))
-
-        UsersAPI.unfollow(userId).then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(unfollowSuccess(userId))
-            }
-            dispatch(toggleIsFollowingProgress(false, userId))
-        })
-    }
+    UsersAPI.unfollow(userId).then(response => {
+        if (response.data.resultCode === 0) {
+            dispatch(unfollowSuccess(userId))
+        }
+        dispatch(toggleIsFollowingProgress(false, userId))
+    })
 }
+
 export default usersReducer;
