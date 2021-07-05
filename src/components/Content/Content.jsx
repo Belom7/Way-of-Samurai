@@ -6,6 +6,7 @@ import ProfileContainer from './Profile/ProfileContainer';
 import UsersContainer from './Users/UsersContainer'
 import News from './News/News';
 import Music from './Music/Music';
+import Login from './Login/Login';
 
 const Content = (props) => { 
   return(      
@@ -15,6 +16,7 @@ const Content = (props) => {
       <Route path='/News' render={ () => <News/>}/>
       <Route path='/Music' render={ () => <Music/>}/>
       <Route path='/Users' render={ () => <UsersContainer/>}/>
+      <Route path='/Login' render={ () => <Login/>}/>
     </div>
   )
 }
