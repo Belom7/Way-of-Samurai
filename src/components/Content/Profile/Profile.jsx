@@ -17,7 +17,7 @@ const Profile = (props) => {
     
     return(
         <div className={Classes.profile}>
-            <ProfileInfo profile={props.profile.profile}/>
+            <ProfileInfo profile={props.profile.profile} status={props.status} updateStatus={props.updateStatus}/>
             <div>
                 <textarea onChange={onPostChange} value={props.profile.posts.newPostText}/>
                 <button onClick={addPost}>add post</button>
