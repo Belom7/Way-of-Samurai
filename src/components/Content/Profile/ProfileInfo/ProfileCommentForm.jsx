@@ -7,7 +7,7 @@ const ProfileCommentForm = (props) => {
        <div>
            <form onSubmit={props.handleSubmit}>
                <div>
-                    <Field name={'comment'} component={'input'}/>
+                    <Field name={'comment'} component={'input'} placeholder={'Введите комментарий'}/>
                </div>
                <div>
                     <button>add post</button>
