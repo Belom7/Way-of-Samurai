@@ -1,4 +1,4 @@
-const ADD_DIALOG = 'ADD-DIALOG';
+const ADD_DIALOG = 'dialogs/ADD-DIALOG';
 
 let initState = {
     dialogsData: [
@@ -30,9 +30,6 @@ const dialogsReducer = (state = initState, action) => {
             return state;
     }
 }
-
-
-
 
 export const addMessageActionCreator = (newMessageText) => {
     return { type: ADD_DIALOG, newMessageText }
