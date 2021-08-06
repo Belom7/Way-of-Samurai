@@ -6,14 +6,14 @@ import ProfileReduxForm from './ProfileInfo/ProfileCommentForm';
 
 
 const Profile = (props) => {
-    
+
     const addNewPost = (value) => {
         props.addPost(value.comment)
     }
     
     return(
         <div className={Classes.profile}>
-            <ProfileInfo profile={props.profile.profile} status={props.status} updateStatus={props.updateStatus}/>
+            <ProfileInfo isOwner={props.isOwner} profile={props.profile.profile} status={props.status} updateStatus={props.updateStatus} savePhoto={props.savePhoto}/>
             <ProfileReduxForm onSubmit={addNewPost}/>
             <Posts posts={props.profile.posts}/>
         </div>
